@@ -1,11 +1,31 @@
 ---
+layout: post
 title: "This is a test post for code formatting"
-categories: python, flask
+categories: python flask
 ---
 
 Going to write some GitHub Markdown. Let's test this out.
 
+```python
+@app.route('/login/authorized_linkedin')
+@linkedin.authorized_handler
+def authorized_linkedin(resp):
+    if resp is None:
+        # error, error_description, state
+        flash('Access denied: reason=%s error=%s' % (
+                request.args['error'],
+                request.args['error_description']
+            ), 'alert'
+        )
+        return login() # TODO: It might make more sense to REDIRECT to a registration page?
+```
 
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
 
 {% highlight python %}
 @app.route('/login/authorized_linkedin')
